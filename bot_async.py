@@ -6,8 +6,14 @@ from telegram.ext import ApplicationBuilder, CommandHandler, ContextTypes
 from telegram import Bot
 import logging
 
+from dotenv import load_dotenv
+import os
 
-TOKEN = '7734520522:AAFPWEruBi5UI_sjrxvxRR5vO8ZdFc6M-Yk'
+load_dotenv()  # Вчитува променливи од .env
+
+TOKEN = os.getenv("TELEGRAM_TOKEN")  # Го вчитува токенот од .env
+print(f"Токен од .env: {TOKEN}")
+
 OPENWEATHER_API_KEY = "3765925764c3f36e135ae51a54a2e13e"
 logging.basicConfig(
     format="%(asctime)s - %(name)s - %(levelname)s - %(message)s", level=logging.INFO
@@ -137,11 +143,17 @@ async def main():
     app = ApplicationBuilder().token(TOKEN).build()
     
     app.add_handler(CommandHandler("start", start))
+    print("Додаден хендлер за /start")
     app.add_handler(CommandHandler("inflacija", inflacija))
+    print("Додаден хендлер за /inflacija")
     app.add_handler(CommandHandler("inflacija_kategorii", inflacija_kategorii))
+    print("Додаден хендлер за /inflacija_kategorii")
     app.add_handler(CommandHandler("kurs", kurs))
+    print("Додаден хендлер за /kurs")
     app.add_handler(CommandHandler("vreme", vreme))
+    print("Додаден хендлер за /vreme")
     app.add_handler(CommandHandler("plata", placa))
+    print("Додаден хендлер за /plata")
 
 
 

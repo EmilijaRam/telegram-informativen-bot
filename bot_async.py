@@ -7,7 +7,7 @@ from telegram import Bot
 import logging
 
 
-TOKEN = '7734520522:AAHTEHWZm5lQg3jkLRLcBXxFfq6HX07ZOAQ'
+TOKEN = '7734520522:AAFPWEruBi5UI_sjrxvxRR5vO8ZdFc6M-Yk'
 OPENWEATHER_API_KEY = "3765925764c3f36e135ae51a54a2e13e"
 logging.basicConfig(
     format="%(asctime)s - %(name)s - %(levelname)s - %(message)s", level=logging.INFO

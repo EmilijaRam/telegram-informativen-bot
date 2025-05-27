@@ -94,5 +94,11 @@ Daily weather forecast for Skopje
 ![/vreme](https://github.com/EmilijaRam/telegram-informativen-bot/blob/main/weather%20forecast.png)
 
 ----
+## 📄 License
+
+This project is licensed under the [Creative Commons Attribution-NonCommercial 4.0 International License](https://creativecommons.org/licenses/by-nc/4.0/).  
+You may use, share, and modify the code for **non-commercial purposes only**.  
+For commercial use, please contact the author.
+
 ## 📬 Contact
 Created by Emilija Ramova

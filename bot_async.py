@@ -40,32 +40,23 @@ def vadi_inflacija_od_stat():
 
     return poraka.strip()
 
-def vadi_placa():
+def vadi_placa_finansiski():
     url = "https://www.stat.gov.mk/PrikaziSoopstenie.aspx?rbrtxt=40"
     response = requests.get(url)
     if response.status_code != 200:
         return "Не можам да ја преземам страницата со плати."
     soup = BeautifulSoup(response.text, 'html.parser')
 
-    # Пребаруваме по елемент каде што е текстот со платата (пример: некој div или span)
     tekst_div = soup.find(id='ctl00_ContentPlaceHolder1_FormView2_TEKSTSOOPST_MKLabel')
     if not tekst_div:
         return "Не најдов податоци за просечната плата."
-    
-    paragraphs = tekst_div.find_all('p')
-    if not paragraphs:
-        return "Податоците за плата се празни."
-    
-    for p in paragraphs:
-        text = p.get_text(strip=True)
-        if "денари" in text.lower() and ("плата" in text.lower() or "нето" in text.lower()):
-            return text  # Враќаме ја првата релевантна реченица
-    
-    return "Не најдов валиден податок за просечна плата."
 
-async def placa(update: Update, context: ContextTypes.DEFAULT_TYPE):
-    plata = vadi_placa()
-    await update.message.reply_text(f"Последната објавена просечна нето плата:\n{plata}")
+    for p in tekst_div.find_all('p'):
+        text = p.get_text(strip=True)
+        if "денари" in text.lower() and "финансиски сектор" in text.lower():
+            return text
+
+    return "Не најдов валиден податок за просечна плата во финансискиот сектор."
 
 
 
@@ -138,6 +129,11 @@ async def vreme(update: Update, context: ContextTypes.DEFAULT_TYPE):
     except Exception as e:
         await update.message.reply_text("Грешка при читање на временската прогноза.")
 
+async def plata_finansiski(update: Update, context: ContextTypes.DEFAULT_TYPE):
+    plata = vadi_placa_finansiski()
+    await update.message.reply_text(f"Последната објавена просечна нето плата во финансискиот сектор:\n{plata}")
+
+
 async def main():
     await reset_bot(TOKEN)
     app = ApplicationBuilder().token(TOKEN).build()
@@ -152,8 +148,8 @@ async def main():
     print("Додаден хендлер за /kurs")
     app.add_handler(CommandHandler("vreme", vreme))
     print("Додаден хендлер за /vreme")
-    app.add_handler(CommandHandler("plata", placa))
-    print("Додаден хендлер за /plata")
+    app.add_handler(CommandHandler("plata_finansiski", plata_finansiski))
+    print("Додаден хендлер за /plata_finansiski")
 
 
 

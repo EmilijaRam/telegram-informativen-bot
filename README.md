@@ -1,47 +1,104 @@
-# 📊 Telegram Informative Bot 🇲🇰
+# 📊 Telegram Informative Bot for North Macedonia
 
-Овој бот обезбедува корисни информации за Македонија директно во Telegram – вклучува:
-- 🧾 Инфлација од Светска банка
-- 🧺 Инфлација по категории од Државен завод за статистика (ДЗС)
-- 💰 Просечна нето плата
-- 💶 Девизен курс EUR → MKD
-- 🌤️ Временска прогноза за Скопје
+This bot provides useful information about North Macedonia directly on Telegram, including:
+
+🧾 Inflation data from the World Bank
+
+🧺 Inflation by categories from the State Statistical Office (SSO)
+
+💰 Average net salary
+
+💶 EUR to MKD exchange rate
+
+🌤️ Weather forecast for Skopje
 
 ---
 
-## 🚀 Како да го користиш
+## 🚀 How to Use
 
-🟢 Ботот е достапен на Telegram:  
+🟢 The bot is available on Telegram: 
+
 👉 [t.me/inflacija_bot](https://t.me/inflacija_bot)
 
-🗒️ Команди што ги разбира:
+🗒️ Supported Commands:
 | Команда              | Опис |
-|----------------------|------|
-| `/start`             | Почетен екран со инструкции |
-| `/inflacija`         | Инфлација по години од Светска банка |
-| `/inflacija_kategorii` | Инфлација по категории (ДЗС) |
-| `/plata`             | Последна објавена просечна нето плата |
-| `/kurs`              | Девизен курс на EUR во MKD |
-| `/vreme`             | Времето во Скопје |
+|----------------------|------
+| /start               | Welcome message and instructions
+| /inflacija           | Inflation by years from the World Bank 
+| /inflacija_kategorii | Inflation by categories from SSO 
+| /plata               | Latest published average net salary
+| /kurs                | EUR to MKD exchange rate 
+| /vreme               | Wather in Skopje 
 
 ---
 
-## 🛠️ Технологии
+## 🛠️ Technologies Used
 
-- Python 3.10+
-- `python-telegram-bot`
-- `requests`
-- `BeautifulSoup` (bs4)
-- OpenWeatherMap API
-- ER-API за девизен курс
-- World Bank API
-- Web scraping за ДЗС и плата
+ - [`python-telegram-bot`](https://github.com/python-telegram-bot/python-telegram-bot)
+ - requests, BeautifulSoup (`bs4`)
+ - [OpenWeatherMap API](https://openweathermap.org/api)
+ - [ER-API](https://www.exchangerate-api.com/) (exchange rates)
+ - [World Bank API](https://data.worldbank.org/)
+ - Web scraping (SSO and salary data from official sites)
+
 
 ---
 
-## 🔧 Инсталација локално
+## 🔧 Local Installation
 
-1. Клонирај го репото:
-```bash
+1. Clone the repository:
+
 git clone https://github.com/your-username/telegram-informative-bot.git
+
 cd telegram-informative-bot
+
+
+2.Install dependencies: 
+
+pip install -r requirements.txt
+
+
+3.Set your Telegram Bot Token:
+
+Create a file called .env in the project folder and add:
+
+TELEGRAM_TOKEN=your_telegram_bot_token
+
+
+4.Run the bot:
+
+python main.py
+
+----
+
+## 📸 Example Bot Output
+
+Start Message
+
+![/start](https://github.com/EmilijaRam/telegram-informativen-bot/blob/main/start.png)
+
+Annual Inflation in North Macedonia
+
+![/inflacija](https://github.com/EmilijaRam/telegram-informativen-bot/blob/main/inflation.png)
+
+Monthly inflation by categories
+
+![/inflacija_kategorii](https://github.com/EmilijaRam/telegram-informativen-bot/blob/main/inflation%20categories.png)
+
+Average net salary
+
+![/plata](https://github.com/EmilijaRam/telegram-informativen-bot/blob/main/salary.png)
+
+Daily weather forecast for Skopje
+
+![/vreme](https://github.com/EmilijaRam/telegram-informativen-bot/blob/main/weather%20forecast.png)
+
+----
+## 📄 License
+
+This project is licensed under the [Creative Commons Attribution-NonCommercial 4.0 International License](https://creativecommons.org/licenses/by-nc/4.0/).  
+You may use, share, and modify the code for **non-commercial purposes only**.  
+For commercial use, please contact the author.
+
+## 📬 Contact
+Created by Emilija Ramova

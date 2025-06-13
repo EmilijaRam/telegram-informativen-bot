@@ -67,7 +67,7 @@ async def start(update: Update, context: ContextTypes.DEFAULT_TYPE):
         "🧾 /inflacija_kategorii - Инфлација по категории (ДЗС)\n"
         "💶 /kurs - Курс на еврото\n"
         "🌦 /vreme - Временска прогноза за Скопје\n"
-        "👛 /plata - Последна објавена нето плата"
+        # "👛 /plata - Последна објавена нето плата во финансискиот сектор"
         )
 
 
@@ -148,7 +148,7 @@ async def main():
     print("Додаден хендлер за /kurs")
     app.add_handler(CommandHandler("vreme", vreme))
     print("Додаден хендлер за /vreme")
-    app.add_handler(CommandHandler("plata_finansiski", plata_finansiski))
+    app.add_handler(CommandHandler("plata", plata_finansiski))
     print("Додаден хендлер за /plata_finansiski")
 
 
